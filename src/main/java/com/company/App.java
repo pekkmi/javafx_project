@@ -26,7 +26,7 @@ public class App extends Application {
         layout.setTop(ylapalkki);
         clearText.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                tekstikentta.clear();sdfasdf
+                tekstikentta.clear();
             }
         });
         Scene content = new Scene(layout,680, 460);
