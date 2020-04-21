@@ -30,16 +30,24 @@ public class App extends Application {
 
         Menu menu1 = new Menu("File");
         valikko.getMenus().add(menu1);
+        Menu menu2 = new Menu("Help");
+        valikko.getMenus().add(menu2);
         layout.setTop(menus);
-        MenuItem menuItem1 = new MenuItem("Item 1");
-        MenuItem menuItem2 = new MenuItem("Item 2");
+        MenuItem newFile = new MenuItem("New");
+        MenuItem openFile = new MenuItem("Open file");
+        MenuItem saveFile = new MenuItem("Save file");
         MenuItem separator = new MenuItem("------");
         MenuItem exit = new MenuItem("Exit");
+        MenuItem aboutApp = new MenuItem("About");
+        MenuItem help = new MenuItem("Help");
 
-        menu1.getItems().add(menuItem1);
-        menu1.getItems().add(menuItem2);
+        menu1.getItems().add(newFile);
+        menu1.getItems().add(openFile);
+        menu1.getItems().add(saveFile);
         menu1.getItems().add(separator);
         menu1.getItems().add(exit);
+        menu2.getItems().add(aboutApp);
+        menu2.getItems().add(help);
 
         exit.setOnAction(e -> System.exit(0));
 
