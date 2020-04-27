@@ -10,25 +10,26 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class App extends Application {
-    private int i =0;
+
     @Override
-    public void start(Stage stage) {
-        stage.setTitle("JavaFX code editor by:Mika Pekkala ");
-        stage.initStyle(StageStyle.DECORATED);
-        BorderPane layout = new BorderPane();
-        TextArea tekstikentta = new TextArea();
-        MenuBar valikko = new MenuBar();
+    public void start(Stage stage) {    //Create new window
+        stage.setTitle("JavaFX code editor by:Mika Pekkala "); //Set title of the window
+        stage.initStyle(StageStyle.DECORATED); //Make a choise of window style
+        BorderPane layout = new BorderPane(); //Make a borderpane layout object
+        TextArea tekstikentta = new TextArea(); //Make a textarea
+        MenuBar valikko = new MenuBar(); // Make top menu
 
-        Button clearText = new Button("Clear");
+        Button clearText = new Button("Clear"); //Make two buttons and add them to the top of window
         Button click2 = new Button("Click2!");
-        HBox ylapalkki = new HBox(clearText, click2);
-        layout.setTop(ylapalkki);
-        clearText.setOnAction(e -> tekstikentta.clear());
+        HBox ylapalkki = new HBox(clearText, click2); //Here i add the two buttons to horizontal box
+        layout.setTop(ylapalkki); //Here i deside to set horizontal box to top of the window
+        clearText.setOnAction(e -> tekstikentta.clear()); //This line makes the clear button to clear the text area
 
-        VBox menus = new VBox(valikko, ylapalkki);
+        VBox menus = new VBox(valikko, ylapalkki); //Here i make a vertical box and put menu and two buttons in top of the window
 
-        layout.setCenter(tekstikentta);
+        layout.setCenter(tekstikentta); // Here i make the text area to appear in the middle of the window
 
+        //Here i make the menus and menuitems
         Menu menu1 = new Menu("File");
         valikko.getMenus().add(menu1);
         Menu menu2 = new Menu("Tools");
@@ -45,7 +46,7 @@ public class App extends Application {
         MenuItem aboutApp = new MenuItem("About");
         MenuItem help = new MenuItem("Help");
         MenuItem font = new MenuItem("Change font");
-        MenuItem addMenuItem = new MenuItem("Add basic menu");
+        MenuItem addMenuItem = new MenuItem("Add basic javaFX menu");
         subMenu2.getItems().add(addMenuItem);
         
         menu1.getItems().add(newFile);
@@ -60,7 +61,7 @@ public class App extends Application {
 
         exit.setOnAction(e -> System.exit(0));
 
-        //Append text from add menu to textare(tekstikentta)
+        //Append text from add menu to textarea(tekstikentta)
         addMenuItem.setOnAction(event -> {
             tekstikentta.appendText("MenuBar topMenu = new MenuBar();");
             tekstikentta.appendText("\n");
