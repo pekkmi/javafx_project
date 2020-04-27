@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class App extends Application {
+    private int i =0;
     @Override
     public void start(Stage stage) {
         stage.setTitle("JavaFX code editor by:Mika Pekkala ");
@@ -44,9 +45,9 @@ public class App extends Application {
         MenuItem aboutApp = new MenuItem("About");
         MenuItem help = new MenuItem("Help");
         MenuItem font = new MenuItem("Change font");
-        MenuItem mainMethod = new MenuItem("Add Main method");
-        subMenu2.getItems().add(mainMethod);
-
+        MenuItem addMenuItem = new MenuItem("Add basic menu");
+        subMenu2.getItems().add(addMenuItem);
+        
         menu1.getItems().add(newFile);
         menu1.getItems().add(openFile);
         menu1.getItems().add(saveFile);
@@ -59,6 +60,22 @@ public class App extends Application {
 
         exit.setOnAction(e -> System.exit(0));
 
+        //Append text from add menu to textare(tekstikentta)
+        addMenuItem.setOnAction(event -> {
+            tekstikentta.appendText("MenuBar topMenu = new MenuBar();");
+            tekstikentta.appendText("\n");
+            tekstikentta.appendText("VBox menus = new VBox(topMenu);");
+            tekstikentta.appendText("\n");
+            tekstikentta.appendText("layout.setTop(topMenu)");
+            tekstikentta.appendText("\n");
+            tekstikentta.appendText("Menu menu1 = new Menu(first menus name here ex.File);");
+            tekstikentta.appendText("\n");
+            tekstikentta.appendText("topMenu.getMenus().add(menu1);");
+            tekstikentta.appendText("\n");
+            tekstikentta.appendText("MenuItem menuItem1 = new MenuItem(menu item name here ex.New);");
+            tekstikentta.appendText("\n");
+            tekstikentta.appendText("menu1.getItems().add(menuItem1);");
+        });
         Scene content = new Scene(layout,680, 460);
         stage.setScene(content);
         stage.show();
